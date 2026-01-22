@@ -1,6 +1,6 @@
+#Task {name: str, completed: bool}
+
 def add_task(tasks, task_name = "default task"):
-    
-    #task: name, completed
     task = {"name": task_name, "completed": False }
     tasks.append(task)
     print(f"Task {task_name} added successfully")
@@ -9,9 +9,9 @@ def add_task(tasks, task_name = "default task"):
 def list_tasks(tasks):
     print("\nTask List")
     for index, task in enumerate(tasks, start=1):
-        status = "✓" if task["completada"] else " "
-        print(f"{index}. [{status}] { task_name}")
-    return
+        status = "✓" if task["completed"] else " "
+        task_name = task["name"]
+        print(f"{index}. [{status}] {task_name}")
 
 tasks = []
 while True:
