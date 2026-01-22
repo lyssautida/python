@@ -14,7 +14,7 @@ my_list = [1,3,2,6,4]
 my_list.sort() #reorganize ascending order
 
 
-my_tuple = [1, 2, 2, 3, 4] # immutable, hashable
+my_tuple = (1, 2, 2, 3, 4) # immutable, hashable
 
 my_tuple.count(2)
 my_tuple.index(3)
@@ -42,4 +42,23 @@ if age != 0:
     print("Not a baby anymore")
 
 
-age = int(input(("age?"))) #input
+#age = int(input(("age?"))) #input
+
+#loop for while
+for element in my_list:
+    print(element)
+
+for element in my_tuple:
+    print(element)
+
+for key, value in person.items():
+    print(key, value)
+
+range(0,10) #numeric interval
+
+for index in range(0, len(my_list)): #lenght
+    print("Index:", my_list[index])
+
+for index, value in enumerate(my_list):
+    print(f"{index}: {value}")
+
