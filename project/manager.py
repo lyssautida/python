@@ -7,11 +7,36 @@ def add_task(tasks, task_name = "default task"):
     return
 
 def list_tasks(tasks):
-    print("\nTask List")
+    print("\nTASK LIST")
     for index, task in enumerate(tasks, start=1):
         status = "✓" if task["completed"] else " "
         task_name = task["name"]
-        print(f"{index}. [{status}] {task_name}")
+        print(f" [{status}] {index}.{task_name}")
+
+def update_task_name(tasks, index, new_task_name):
+    task_index = int(index) - 1
+    if task_index >= 0 and task_index < len(tasks):
+        tasks[task_index]["name"] = new_task_name
+        print(f"Task {index} updated to {new_task_name}")
+    else:
+        print("Invalid task index")
+    return
+
+def complete_task(tasks, index):
+    task_index = int(index) - 1
+    if task_index >= 0 and task_index < len(tasks):
+        tasks[task_index]["completed"] = True
+        print(f"Task {index} completed")
+    else:
+        print("Invalid task index")
+    return
+
+def delete_task(tasks):
+    for task in tasks:
+        if task["completed"]:
+            tasks.remove(task)
+    print("Completed tasks deleted successfully")
+    return
 
 tasks = []
 while True:
@@ -29,6 +54,19 @@ while True:
         task_name = input("Write the task name you're about to create: ")
         add_task(tasks, task_name)
     elif choice == "2":
+        list_tasks(tasks)
+    elif choice == "3":
+        list_tasks(tasks)
+        task_index = input("Task index: ")
+        new_task_name = input("New task name: ")
+        update_task_name(tasks, task_index, new_task_name)
+    elif choice == "4":
+        list_tasks(tasks)
+        task_index = input("Task index: ")
+        complete_task(tasks, task_index)
+    elif choice == "5":
+        list_tasks(tasks)
+        delete_task(tasks)
         list_tasks(tasks)
     elif choice == "6":
         print("Bye.")
