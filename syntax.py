@@ -25,7 +25,7 @@ person["surname"] = "Yamada"  #add key-value
 del person["age"]
 person.keys() #dict_keys(['name', city, surname])
 keys = list(person.keys()) # can use keys[0] 
-values = list(person.values()) # can acess values[0] 
+values = list(person.values()) # can access values[0] 
 items = list(person.items()) # can use items[0][1]
 print("First key-value: %s = %s" % (items[0][0], items[0][1]))
 
